@@ -23,7 +23,7 @@
             margin-bottom: 5vw;
         }
 
-        /*  Øverst*/
+        /*  Øverst i headeren*/
 
         .overst {
             display: grid;
@@ -115,6 +115,88 @@
         .nav .search-container button:hover {
             background-color: darkgray;
         }
+
+         /*  INDHOLD*/
+        .event-article {
+            border: solid 1px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+
+        .data-titel {
+            grid-column: 1 / span 2;
+            grid-row: 3;
+        }
+
+        .data-tid {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        .data-sted {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .kob{
+            grid-column: 3;
+            grid-row: 4;
+            border: solid;
+            text-align: center;
+        }
+        .data-pris {
+            grid-column: 3;
+            grid-row: 4;
+            text-align: center;
+        }
+
+        .kort-beskrivelse {
+            grid-column: 1;
+            grid-row: 4;
+        }
+
+        .data-billede{
+        grid-column: 2;
+        grid-row: 2;
+        }
+
+
+        /*  FOOTER*/
+
+        .foot-wrap {
+            background-color: lightgray;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .adresse {
+            padding-left: 3vw;
+        }
+        .adresse h2{
+            font-size: 18px;
+        }
+        .adresse p{
+            font-size: 14px;
+        }
+                .kontakt h2{
+            font-size: 18px;
+        }
+        .kontakt p{
+            font-size: 14px;
+        }
+                .åbningstider {
+            padding-left: 3vw;
+        }
+                .åbningstider h2{
+            font-size: 18px;
+        }
+        .åbningstider p{
+            font-size: 14px;
+        }
+
+
+
     </style>
 </head>
 
@@ -171,17 +253,43 @@
     <template id="event-template">
       <article class="event-article">
        <h2 class="data-titel"></h2>
-       <p class="data-dato"></p>
+<!--       <p class="data-dato"></p>-->
        <p class="data-tid"></p>
        <p class="data-sted"></p>
        <p class="data-pris"></p>
        <p class="eventtype"></p>
        <p class="kort-beskrivelse"></p>
-       <div class="lang-beskrivelse"></div>
+<!--       <div class="lang-beskrivelse"></div>-->
         <img class="data-billede" src="" alt="">
         <a href="" class="kob"></a>
        </article>
     </template>
+
+
+    <footer>
+        <!--adresse-->
+        <section class="foot-wrap">
+            <div class="adresse">
+                <h2>Adresse</h2>
+                <p>Rådhusstræde 13 <br> 1466 København K</p>
+            </div>
+            <!--kontakt-->
+            <div class="kontakt">
+                <h2>Kontakt</h2>
+                <p>Tlf: 21 51 21 51 <br> Mail: info@huset-kbh.dk</p>
+            </div>
+            <!--åbningstider-->
+            <div class="åbningstider">
+                <h2>Åbningstider</h2>
+                <p>Søndag-tordag 12:00-00:00 <br> Fredag-lørdag 12:00-02:00</p>
+            </div>
+
+
+            <!--some-->
+            <!--andre logoer-->
+        </section>
+    </footer>
+
 
 
     <!--Script-->
@@ -215,13 +323,12 @@
                     let klon = eventTemplate.cloneNode(true).content;
 
                     klon.querySelector(".data-titel").textContent = event.title.rendered;
-                    klon.querySelector(".data-dato").textContent = event.acf.dato;
+//                    klon.querySelector(".data-dato").textContent = event.acf.dato;
                     klon.querySelector(".data-tid").textContent = event.acf.tid;
                     klon.querySelector(".data-sted").textContent = event.acf.sted;
                     klon.querySelector(".data-pris").textContent = event.acf.pris;
-                    klon.querySelector(".data-dato").textContent = event.acf.dato;
                     klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
-                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
+//                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
                     klon.querySelector("img").src = event.acf.billede;
 
                     eventContainer.appendChild(klon);
@@ -247,15 +354,6 @@
             visEvent();
         }
     </script>
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 
 </html>
