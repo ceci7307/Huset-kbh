@@ -7,6 +7,8 @@
     <title>Huset KBH events</title>
     <!-- search ikon   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- burger menu   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         img {
@@ -68,7 +70,13 @@
             color: black;
         }
 
+        .search-container {
+            float: right;
+        }
+
         /*  NAV*/
+
+        /*
 
         .nav {
             overflow: hidden;
@@ -115,10 +123,37 @@
         .nav .search-container button:hover {
             background-color: darkgray;
         }
+*/
+        .navigaton {
+            background-color: white;
+            max-width: 480px;
+            overflow: hidden;
+        }
 
-         /*  INDHOLD*/
+        #nav {
+            display: none;
+        }
+
+        .navigaton a {
+            color: black;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            display: block;
+        }
+
+        .navigaton a.icon {
+            background: white;
+            display: block;
+            right: 0;
+            top: 0;
+        }
+
+        /*  INDHOLD*/
+
         .event-article {
-            border: solid 1px;
+            margin: 1vw;
+            background-color: #ededed;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -127,6 +162,7 @@
         .data-titel {
             grid-column: 1 / span 2;
             grid-row: 3;
+            margin-left: 3vw;
         }
 
         .data-tid {
@@ -137,29 +173,31 @@
         .data-sted {
             grid-column: 1;
             grid-row: 1;
+            margin-left: 3vw;
         }
 
-        .kob{
+        .kob {
             grid-column: 3;
             grid-row: 4;
-            border: solid;
+            border: solid black;
             text-align: center;
-        }
-        .data-pris {
-            grid-column: 3;
-            grid-row: 4;
-            text-align: center;
+            max-width: 23vw;
+            max-height: 13vw;
+            text-decoration: none;
+            color: black;
         }
 
         .kort-beskrivelse {
             grid-column: 1;
             grid-row: 4;
+            margin-left: 3vw;
         }
 
-        .data-billede{
-        grid-column: 2;
-        grid-row: 2;
+        .data-billede {
+            grid-column: 2;
+            grid-row: 2;
         }
+
 
 
         /*  FOOTER*/
@@ -173,30 +211,34 @@
         .adresse {
             padding-left: 3vw;
         }
-        .adresse h2{
+
+        .adresse h2 {
             font-size: 18px;
         }
-        .adresse p{
+
+        .adresse p {
             font-size: 14px;
         }
-                .kontakt h2{
+
+        .kontakt h2 {
             font-size: 18px;
         }
-        .kontakt p{
+
+        .kontakt p {
             font-size: 14px;
         }
-                .åbningstider {
+
+        .åbningstider {
             padding-left: 3vw;
         }
-                .åbningstider h2{
+
+        .åbningstider h2 {
             font-size: 18px;
         }
-        .åbningstider p{
+
+        .åbningstider p {
             font-size: 14px;
         }
-
-
-
     </style>
 </head>
 
@@ -215,21 +257,27 @@
         </div>
     </section>
     <!--nav-->
-    <div class="nav">
-        <a href="#om">Huset</a>
-        <a href="#udlejning">Udlejning</a>
-        <a href="#ss">Scener og spisesteder</a>
-        <a href="#events">Events</a>
-        <a href="#kontakt">Tag kontakt</a>
-        <!--search-->
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
 
+    <div class="navigaton">
+        <div id="nav">
+            <a href="#om">Huset</a>
+            <a href="#udlejning">Udlejning</a>
+            <a href="#ss">Scener og spisesteder</a>
+            <a href="#events">Events</a>
+            <a href="#kontakt">Tag kontakt</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+        </a>
     </div>
+    <!--search-->
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
     <!--dk/en-->
 </header>
 
@@ -253,15 +301,15 @@
     <template id="event-template">
       <article class="event-article">
        <h2 class="data-titel"></h2>
-<!--       <p class="data-dato"></p>-->
+          <p class="data-dato"></p>
        <p class="data-tid"></p>
        <p class="data-sted"></p>
        <p class="data-pris"></p>
        <p class="eventtype"></p>
        <p class="kort-beskrivelse"></p>
-<!--       <div class="lang-beskrivelse"></div>-->
+<div class="lang-beskrivelse"></div>
         <img class="data-billede" src="" alt="">
-        <a href="" class="kob"></a>
+        <a href="" class="kob"><p>Køb billet</p></a>
        </article>
     </template>
 
@@ -323,13 +371,14 @@
                     let klon = eventTemplate.cloneNode(true).content;
 
                     klon.querySelector(".data-titel").textContent = event.title.rendered;
-//                    klon.querySelector(".data-dato").textContent = event.acf.dato;
-                    klon.querySelector(".data-tid").textContent = event.acf.tid;
+                    //                    klon.querySelector(".data-dato").textContent = event.acf.dato;
+                    klon.querySelector(".data-tid").textContent = "Dato: " + event.acf.tid;
                     klon.querySelector(".data-sted").textContent = event.acf.sted;
-                    klon.querySelector(".data-pris").textContent = event.acf.pris;
+//                    klon.querySelector(".data-pris").textContent = event.acf.pris;
                     klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
-//                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
+                    //                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
                     klon.querySelector("img").src = event.acf.billede;
+                    klon.querySelector("a").src = "Køb billet " + event.acf.kob;
 
                     eventContainer.appendChild(klon);
                 }
@@ -353,7 +402,17 @@
 
             visEvent();
         }
+
+        // NAV
+        function myFunction() {
+  var x = document.getElementById("nav");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
     </script>
-    </body>
+</body>
 
 </html>
