@@ -285,6 +285,18 @@ p {
         }
 
 
+form {
+
+}
+
+form.vis {
+            /*display: block;*/
+            opacity: 1;
+            pointer-events: all;
+            transition: 0.5s;
+        }
+
+
    /*  MEDIA Q*/
 
 @media screen and (min-width: 765px) {
