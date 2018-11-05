@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huset KBH events</title>
+    <!-- search ikon   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- style css   -->
+    <link rel="stylesheet" href="style.css">
+    <!-- burger menu   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<header>
+    <!--bliv frivillig / Nyhedsbrev-->
+    <section class="overst">
+        <div class="frivillig">
+            <a href="#">
+                <p>Frivillig</p>
+            </a>
+        </div>
+        <div class="nyhedsbrev">
+            <a href="#">
+                <p>Nyhedsbrev</p>
+            </a>
+        </div>
+    </section>
+    <!--nav-->
+
+    <div class="navigaton">
+        <div id="nav">
+            <a href="#om">Huset</a>
+            <a href="#udlejning">Udlejning</a>
+            <a href="#ss">Scener og spisesteder</a>
+            <a href="#events">Events</a>
+            <a href="#kontakt">Tag kontakt</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <!--search-->
+    <!--
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+-->
+
+    <!--dk/en-->
+</header>
+
+
+<body>
+    <!--KNAPPER TIL FILTRERING-->
+    <div class="knapper">
+        <button class="eventtype" data-event="events">Kalenderoversigt</button>
+        <button class="eventtype" data-event="Musik">Musik</button>
+        <button class="eventtype" data-event="Film">Film</button>
+        <button class="eventtype" data-event="Teater">Teater</button>
+        <button class="eventtype" data-event="Ord">Ord</button>
+        <button class="eventtype" data-event="Andet">Andet</button>
+    </div>
+
+
+    <!-- MENU MODAL -->
+    <section id="modal">
+
+        <button class="luk">Luk</button>
+        <div id="modal-content">
+            <h2 class="modal-titel"></h2>
+            <img class="modal-billede" src="" alt=""><br>
+            <div id="modal-tekst">
+                <p class="modal-langbeskrivelse"></p><br>
+                <br>
+                <p class="modal-kortbeskrivelse"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!--TEMPLATE-->
+    <section class="container"></section>
+
+    <template id="event-template">
+      <article class="event-article">
+       <h2 class="data-titel"></h2>
+          <p class="data-dato"></p>
+       <p class="data-tid"></p>
+       <p class="data-sted"></p>
+       <p class="data-pris"></p>
+       <p class="eventtype"></p>
+       <p class="kort-beskrivelse"></p>
+<div class="lang-beskrivelse"></div>
+        <img class="data-billede" src="" alt="">
+        <a href="" class="kob"><p>Køb billet</p></a>
+       </article>
+    </template>
+
+
+    <footer>
+        <!--adresse-->
+        <section class="foot-wrap">
+            <div class="adresse">
+                <h2>Adresse</h2>
+                <p>Rådhusstræde 13 <br> 1466 København K</p>
+            </div>
+            <!--kontakt-->
+            <div class="kontakt">
+                <h2>Kontakt</h2>
+                <p>Tlf: 21 51 21 51 <br> Mail: info@huset-kbh.dk</p>
+            </div>
+            <!--åbningstider-->
+            <div class="åbningstider">
+                <h2>Åbningstider</h2>
+                <p>Søndag-tordag 12:00-00:00 <br> Fredag-lørdag 12:00-02:00</p>
+            </div>
+
+
+            <!--some-->
+            <!--andre logoer-->
+        </section>
+    </footer>
+
+
+
+    <!--Script-->
+    <script>
+        // DOM loaded
+
+        document.addEventListener("DOMContentLoaded", getJSON);
+        let endPoint = "events"; //sidste skråstreg i json-fil-linket
+        let eventType = "events";
+        let events = [];
+        let eventTemplate = document.querySelector("#event-template");
+        let eventContainer = document.querySelector(".container");
+
+        // Hent json
+        async function getJSON() {
+            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/" + endPoint);
+            events = await jsonData.json();
+
+            console.log(events);
+            visEvent();
+
+        }
+
+        // Viser og kloner
+        function visEvent() {
+            events.forEach(event => {
+                console.log(eventType, event.acf.eventtype);
+
+                if (eventType == event.acf.eventtype || eventType == "events") {
+
+                    let klon = eventTemplate.cloneNode(true).content;
+
+                    klon.querySelector(".data-titel").textContent = event.title.rendered;
+                    //                    klon.querySelector(".data-dato").textContent = event.acf.dato;
+                    klon.querySelector(".data-tid").textContent = "Dato: " + event.acf.tid;
+                    klon.querySelector(".data-sted").textContent = event.acf.sted;
+                    //                    klon.querySelector(".data-pris").textContent = event.acf.pris;
+                    klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
+                    //                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
+                    klon.querySelector("img").src = event.acf.billede;
+                    klon.querySelector("a").src = "Køb billet " + event.acf.kob;
+
+                    klon.querySelector("img").addEventListener("click", () => {
+                        visModal(event);
+                    });
+
+                    eventContainer.appendChild(klon);
+                }
+            });
+
+        }
+
+        // filtrering
+        let buttons = document.querySelectorAll(".eventtype");
+        buttons.forEach(button => {
+            button.addEventListener("click", filtrering);
+
+        });
+
+        function filtrering(e) {
+
+            console.log(e.target.getAttribute("data-event"));
+            eventType = e.target.getAttribute("data-event");
+            //events = [];
+            eventContainer.textContent = "";
+
+            visEvent();
+        }
+
+        // NAV
+        function myFunction() {
+            var x = document.getElementById("nav");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+         // SCRIPT MODAL
+        function visModal(eventet) {
+            let modal = document.querySelector("#modal");
+            modal.classList.add("vis");
+            modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
+            modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
+             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+
+            modal.querySelector(".modal-billede").src = eventet.acf.billede;
+            modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;
+            modal.querySelector(".luk").addEventListener("click", skjulModal);
+
+        }
+
+        function skjulModal() {
+
+            modal.classList.remove("vis");
+        }
+
+
+
+    </script>
+</body>
+
+</html>
