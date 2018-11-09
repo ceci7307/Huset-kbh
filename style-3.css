@@ -66,6 +66,37 @@ p {
             color: black;
         }
 
+
+.dropbtn {
+    border: none;
+    cursor: pointer;
+    max-width: 25vw;
+    max-height: 10vw;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.dropbtn:hover{
+    background-color: darkgray;
+}
+
+.nyhedsbrev {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-form {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: lightgray;
+}
+
+.show {display: block;}
+
+
+
+
         /*  NAV*/
 
         /*
@@ -200,8 +231,8 @@ p {
             max-width: 100%;
 }
 
-
-        button {
+  /*  Knapper til filtrering */
+        .eventtype {
             background-color: lightgray;
             border: none;
             color: black;
@@ -214,7 +245,7 @@ p {
             cursor: pointer;
         }
 
-        button:hover{
+      .eventtype:hover{
             background-color: darkgray;
         }
 

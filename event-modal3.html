@@ -17,14 +17,25 @@
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
         <div class="frivillig">
-            <a href="#">
+            <a href="frivillig-2.html">
                 <p>Frivillig</p>
             </a>
         </div>
         <div class="nyhedsbrev">
-            <a href="#">
-                <p>Nyhedsbrev</p>
-            </a>
+            <button onclick="rolldown()" class="dropbtn"><p>Nyhedsbrev</p></button>
+            <div id="formDropdown" class="dropdown-form">
+
+                <form class="newsletter">
+                    <div class="navne-newsletter">
+                        <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
+                        <p>Efternavn:</p><input type="text" placeholder="Dit efternavn...">
+                        <p>E-mail:</p><input type="email" placeholder="Din e-mail..."> <br>
+                    </div>
+                    <input type="submit" value="Tilmeld nyhedsbrev">
+
+                </form>
+            </div>
+
         </div>
     </section>
     <!--nav-->
@@ -34,7 +45,7 @@
             <a href="#om">Huset</a>
             <a href="#udlejning">Udlejning</a>
             <a href="#ss">Scener og spisesteder</a>
-            <a href="#events">Events</a>
+            <a href="event-modal3.html">Events</a>
             <a href="#kontakt">Tag kontakt</a>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -94,7 +105,7 @@
        <p class="data-tid"></p>
        <p class="data-sted"></p>
        <p class="data-pris"></p>
-       <p class="eventtype"></p>
+       <p class="data-eventtype"></p>
        <p class="kort-beskrivelse"></p>
 <div class="lang-beskrivelse"></div>
         <img class="data-billede" src="" alt="">
@@ -224,6 +235,12 @@
 
             modal.classList.remove("vis");
         }
+
+                // Nyhedsbrev rolldown
+
+        function rolldown() {
+    document.getElementById("formDropdown").classList.toggle("show");
+}
 
 
     </script>
