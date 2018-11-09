@@ -1,7 +1,6 @@
 
         img {
             width: 100%;
-            max-width: 400px;
         }
 
         body {
@@ -145,34 +144,42 @@ p {
 
         /*  INDHOLD*/
 
+.container {
+                display: grid;
+            grid-template-columns: repeat 1fr ;
+}
+
+
         .event-article {
+            display: grid;
+            grid-template-areas:
+                "sted dato"
+                "billede billede"
+                "titel titel"
+                "tekst kob";
             margin: 1vw;
             background-color: #ededed;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
+
+
+
         }
 
         .data-titel {
-            grid-column: 1 / span 2;
-            grid-row: 3;
+            grid-area: titel;
             margin-left: 3vw;
         }
 
         .data-tid {
-            grid-column: 3;
-            grid-row: 1;
+            grid-area: dato;
         }
 
         .data-sted {
-            grid-column: 1;
-            grid-row: 1;
+            grid-area: sted;
             margin-left: 3vw;
         }
 
         .kob {
-            grid-column: 3;
-            grid-row: 4;
+            grid-area: kob;
             border: solid black;
             text-align: center;
             max-width: 23vw;
@@ -184,14 +191,13 @@ p {
 
 
         .kort-beskrivelse {
-            grid-column: 1 /span 2;
-            grid-row: 4;
+            grid-area: tekst;
             margin-left: 3vw;
         }
 
         .data-billede {
-            grid-column: 2;
-            grid-row: 2;
+            grid-area: billede;
+            max-width: 100%;
 }
 
 
@@ -287,11 +293,93 @@ p {
             transition: 0.5s;
         }
 
+   /*  BLIV FRIVILLIG*/
+
+ /*  WP content */
+
+.frivillig-container{
+
+    margin: 2vw;
+}
+
+
+   /*  Form */
+
+.formular h2{
+    margin: 2vw;
+}
+
+.formular h3{
+    margin: 2vw;
+}
+
+.formular {
+    background-color: #f8f8f8;
+}
+form {
+    margin: 2vw;
+
+}
+
+textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: 2px solid darkgrey;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+}
+
+input[type=text] {
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid darkgrey;
+    resize: vertical;
+    background-color: #f8f8f8;
+}
+
+input[type=email] {
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid darkgrey;
+    background-color: #f8f8f8;
+}
+
+
+input[type=submit] {
+            background-color: lightgray;
+            border: none;
+            color: black;
+            margin-left: 1vw;
+            padding: 12px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+input[type=submit]:hover{
+            background-color: darkgray;
+        }
+
 
 
    /*  MEDIA Q*/
 
 @media screen and (min-width: 765px) {
+
+        .container {
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
 
     p {
     font-size: 15px;
@@ -315,6 +403,13 @@ p {
             button {
             font-size: 13px;
         }
+
+    .navne {
+        display: grid;
+        grid-template-columns: 20% 50%;
+    }
+
+
 }
 
 
@@ -338,4 +433,9 @@ p {
             max-height: 5vw;
 
         }
+
+        .navne {
+        display: grid;
+        grid-template-columns: 10% 50%;
+    }
 }

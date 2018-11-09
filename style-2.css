@@ -1,7 +1,6 @@
 
         img {
             width: 100%;
-            max-width: 400px;
         }
 
         body {
@@ -145,34 +144,42 @@ p {
 
         /*  INDHOLD*/
 
+.container {
+                display: grid;
+            grid-template-columns: repeat 1fr ;
+}
+
+
         .event-article {
+            display: grid;
+            grid-template-areas:
+                "sted dato"
+                "billede billede"
+                "titel titel"
+                "tekst kob";
             margin: 1vw;
             background-color: #ededed;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr;
+
+
+
         }
 
         .data-titel {
-            grid-column: 1 / span 2;
-            grid-row: 3;
+            grid-area: titel;
             margin-left: 3vw;
         }
 
         .data-tid {
-            grid-column: 3;
-            grid-row: 1;
+            grid-area: dato;
         }
 
         .data-sted {
-            grid-column: 1;
-            grid-row: 1;
+            grid-area: sted;
             margin-left: 3vw;
         }
 
         .kob {
-            grid-column: 3;
-            grid-row: 4;
+            grid-area: kob;
             border: solid black;
             text-align: center;
             max-width: 23vw;
@@ -184,14 +191,13 @@ p {
 
 
         .kort-beskrivelse {
-            grid-column: 1 /span 2;
-            grid-row: 4;
+            grid-area: tekst;
             margin-left: 3vw;
         }
 
         .data-billede {
-            grid-column: 2;
-            grid-row: 2;
+            grid-area: billede;
+            max-width: 100%;
 }
 
 
