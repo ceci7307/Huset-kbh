@@ -1,70 +1,86 @@
+img {
+    width: 100%;
+}
 
-        img {
-            width: 100%;
-        }
+body {
+    margin: 0;
+    width: 100%;
+    background-color: whitesmoke
+}
 
-        body {
-            margin: 0;
-            width: 100%;
-        }
+header {
+    margin-bottom: 5vw;
+}
 
-        header {
-            margin-bottom: 5vw;
-        }
+/*  egen font */
 
-h1, h2, h3, h4, h5, h6, p{
-    font-family: Helvetica;
+@font-face {
+    font-family: HUSET Regular;
+    src: url("HUSET Regular.otf") format("opentype");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    font-family: font-family: 'Hind Siliguri', sans-serif;
     color: #1c1c1c;
 }
 
 p {
-    font-size: 13px;
+    font-size: 14px;
 }
 
-        /*  Øverst i headeren*/
+/*  Øverst i headeren*/
 
-        .overst {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 10vw;
-        }
+.overst {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10vw;
+}
 
-        .frivillig {
-            border-right-style: solid;
-            border-color: darkgray;
-            padding-left: 1vw;
-            background-color: lightgray;
+.frivillig {
+    border-right-style: solid;
+    border-color: darkred;
+    padding-left: 1vw;
+    background-color: #d3072a;
 
-        }
+}
 
-        .frivillig a {
-            text-decoration: none;
-        }
+.frivillig a {
+    text-decoration: none;
+}
 
-        .frivillig:hover {
-            background-color: darkgray;
-        }
+.frivillig:hover {
+    background-color: darkred;
+}
 
-        .frivillig p {
-            color: black;
-        }
+.frivillig p {
+    color: white;
+    font-family: 'Hind Siliguri', sans-serif;
+}
 
-        .nyhedsbrev {
-            padding-left: 1vw;
-            background-color: lightgray;
-        }
+.nyhedsbrev {
+    padding-left: 1vw;
+    background-color: #d3072a;
+}
 
-        .nyhedsbrev a {
-            text-decoration: none;
-        }
+.nyhedsbrev a {
+    text-decoration: none;
+}
 
-        .nyhedsbrev:hover {
-            background-color: darkgray;
-        }
+.nyhedsbrev:hover {
+    background-color: darkred;
+}
 
-        .nyhedsbrev p {
-            color: black;
-        }
+.nyhedsbrev p {
+    color: white;
+    font-family: 'Hind Siliguri', sans-serif;
+}
 
 
 .dropbtn {
@@ -73,11 +89,11 @@ p {
     max-width: 25vw;
     max-height: 10vw;
     text-align: center;
-    background-color: lightgray;
+    background-color: #d3072a;
 }
 
-.dropbtn:hover{
-    background-color: darkgray;
+.dropbtn:hover {
+    background-color: darkred;
 }
 
 .nyhedsbrev {
@@ -89,268 +105,315 @@ p {
     display: none;
     position: absolute;
     z-index: 1;
-    background-color: lightgray;
+    background-color: #d3072a;
 }
 
-.show {display: block;}
+.show {
+    display: block;
+}
 
 
 
 
-        /*  NAV*/
+/*  NAV*/
 
-        /*
+.navigation {
+    background-color: white;
+    max-width: 480px;
+    overflow: hidden;
+}
 
-        .nav {
-            overflow: hidden;
-            background-color: #ffffff;
-        }
+#nav {
+    display: none;
+}
 
-        .nav a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 3px 8px;
-            text-decoration: none;
-        }
+.navigation a {
+    color: black;
+    padding: 1px 11px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
 
-        .nav a:hover {
-            background-color: darkgray;
-            color: black;
-        }
+.navigation a:hover {
+    background-color: #d3072a;
+}
 
-        .nav .search-container {
-            float: right;
-        }
+.navigation a.icon {
+    background: whitesmoke;
+    display: block;
+    right: 0;
+    top: 0;
+}
 
-        .nav input[type=text] {
-            padding: 6px;
-            margin-top: 8px;
-            font-size: 12px;
-            border: none;
-            background-color: #e8e8e8;
-        }
+*/ .navFont {
+    font-size: 15px;
+}
 
-        .nav .search-container button {
-            float: right;
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background-color: lightgray;
-            font-size: 12px;
-            border: none;
-            cursor: pointer;
-        }
+.navFont::first-letter {
+    font-family: HUSET Regular;
+    font-size: 35px;
+    color: darkred;
+}
 
-        .nav .search-container button:hover {
-            background-color: darkgray;
-        }
-*/
-
-        .navigaton {
-            background-color: white;
-            max-width: 480px;
-            overflow: hidden;
-        }
-
-        #nav {
-            display: none;
-        }
-
-        .navigaton a {
-            color: black;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-            display: block;
-        }
-
-        .navigaton a.icon {
-            background: white;
-            display: block;
-            right: 0;
-            top: 0;
-        }
-
-        /*  INDHOLD*/
+/*  INDHOLD*/
 
 .container {
-                display: grid;
-            grid-template-columns: repeat 1fr ;
+    display: grid;
+    grid-template-columns: repeat 1fr;
 }
 
 
-        .event-article {
-            display: grid;
-            grid-template-areas:
-                "sted dato"
-                "billede billede"
-                "titel titel"
-                "tekst kob";
-            margin: 1vw;
-            background-color: #ededed;
+.event-article {
+    display: grid;
+    grid-template-areas: "sted dato" "billede billede" "titel titel" "tekst tekst" "read kob";
+    margin: 1vw;
+    /*border: solid 2px #e6e6e6;*/
+    background-color: white;
 
 
 
-        }
-
-        .data-titel {
-            grid-area: titel;
-            margin-left: 3vw;
-        }
-
-        .data-tid {
-            grid-area: dato;
-        }
-
-        .data-sted {
-            grid-area: sted;
-            margin-left: 3vw;
-        }
-
-        .kob {
-            grid-area: kob;
-            border: solid black;
-            text-align: center;
-            max-width: 23vw;
-            max-height: 13vw;
-            text-decoration: none;
-            color: black;
-        }
-
-
-
-        .kort-beskrivelse {
-            grid-area: tekst;
-            margin-left: 3vw;
-        }
-
-        .data-billede {
-            grid-area: billede;
-            max-width: 100%;
 }
 
-  /*  Knapper til filtrering */
-        .eventtype {
-            background-color: lightgray;
-            border: none;
-            color: black;
-            margin-left: 1vw;
-            padding: 12px 12px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 10px;
-            cursor: pointer;
-        }
+.data-titel {
+    grid-area: titel;
+    margin-left: 3vw;
+}
 
-      .eventtype:hover{
-            background-color: darkgray;
-        }
+.data-tid {
+    grid-area: dato;
+}
 
-        /*  FOOTER*/
+.data-sted {
+    grid-area: sted;
+    margin-left: 3vw;
+}
 
-        .foot-wrap {
-            background-color: lightgray;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
+.kob {
+    grid-area: kob;
+    cursor: pointer;
+    border: solid 1px;
+    width: 150px;
+    margin-bottom: 2vw;
 
-        .adresse {
-            padding-left: 3vw;
-        }
+}
 
-        .adresse h2 {
-            font-size: 18px;
-        }
+.read {
+    grid-area: read;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
 
-        .adresse p {
-            font-size: 14px;
-        }
+.read p {
+    color: darkred;
+}
 
-        .kontakt h2 {
-            font-size: 18px;
-        }
 
-        .kontakt p {
-            font-size: 14px;
-        }
 
-        .åbningstider {
-            padding-left: 3vw;
-        }
+.kort-beskrivelse {
+    grid-area: tekst;
+    margin: 3vw;
+}
 
-        .åbningstider h2 {
-            font-size: 18px;
-        }
+.data-billede {
+    grid-area: billede;
+    max-width: 100%;
+}
 
-        .åbningstider p {
-            font-size: 14px;
-        }
+/*  Knapper til filtrering */
 
-       /*  MODAL*/
+.eventtype {
+    color: darkred!important;
+text-transform: uppercase;
+background: whitesmoke;
+padding: 10px;
+border: 0px solid whitesmoke !important;
+    border-left: 1px solid darkred !important;
+border-radius: 0px;
+display: inline-block;
+    cursor: pointer;
+}
+
+.eventtype:hover {
+color: #ffffff !important;
+background: #d3072a;
+border-color: #d3072a !important;
+transition: all 0.4s ease 0s;
+}
+
+/*
+.eventtype {
+    background-color: #d3072a;
+    border: none;
+    color: black;
+    margin-left: 1vw;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.eventtype:hover {
+    background-color: darkred;
+}
+*/
+
+/*  FOOTER*/
+
+.foot-wrap {
+    background-color: #f2f1f1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.adresse {
+    padding-left: 3vw;
+}
+
+.adresse h2 {
+    font-size: 18px;
+}
+
+.adresse p {
+    font-size: 14px;
+}
+
+.kontakt h2 {
+    font-size: 18px;
+}
+
+.kontakt p {
+    font-size: 14px;
+}
+
+.åbningstider {
+    padding-left: 3vw;
+}
+
+.åbningstider h2 {
+    font-size: 18px;
+}
+
+.åbningstider p {
+    font-size: 14px;
+}
+
+.logocontainer {
+    text-align: center;
+}
+
+.logo {
+    max-width: 60px;
+
+}
+
+/*  MODAL*/
 
 #modal {
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            background-color: rgba(0, 0, 0, .7);
-            text-align: center;
-            /*display: none;*/
-            opacity: 0;
-            pointer-events: none;
-            transition: 1s;
-        }
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .7);
+    text-align: center;
+    /*display: none;*/
+    opacity: 0;
+    pointer-events: none;
+    transition: 1s;
+}
 
-        #modal-content {
-            width: 70vw;
-            height: 100vh;
-            background-color: rgba(250, 250, 250, 1);
-            margin: auto;
-            overflow: scroll;
-        }
+#modal-content {
+    width: 70vw;
+    height: 100vh;
+    background-color: rgba(250, 250, 250, 1);
+    margin: auto;
+    overflow: scroll;
+}
 
-        #modal-tekst {
-            text-align: left;
-            margin: 1em;
-        }
+#modal-tekst {
+    text-align: left;
+    margin: 1em;
+}
 
-        #modal.vis {
-            /*display: block;*/
-            opacity: 1;
-            pointer-events: all;
-            transition: 0.5s;
-        }
+#modal.vis {
+    /*display: block;*/
+    opacity: 1;
+    pointer-events: all;
+    transition: 0.5s;
+}
 
-   /*  BLIV FRIVILLIG*/
+/*  BLIV FRIVILLIG*/
 
- /*  WP content */
+/*  WP content */
 
-.frivillig-container{
+.frivillig-container {
 
     margin: 2vw;
 }
 
 
-   /*  Form */
+/*  Form */
 
-.formular h2{
+.formular h2 {
     margin: 2vw;
 }
 
-.formular h3{
+.formular h3 {
     margin: 2vw;
 }
 
 .formular {
     background-color: #f8f8f8;
 }
+
 form {
     margin: 2vw;
 
 }
+
+.navne-newsletter input[type=text] {
+    width: 100%;
+    max-width: 200px;
+    height: 27px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid darkred;
+    resize: vertical;
+    background-color: white;
+}
+
+.navne-newsletter input[type=email] {
+    width: 100%;
+    max-width: 200px;
+    height: 27px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid darkred;
+    background-color: white;
+}
+
+.newsletter input[type=submit] {
+    background-color: white;
+    border: none;
+    color: black;
+    margin-left: 1vw;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    cursor: pointer;
+    margin: 2vw;
+}
+
+.newsletter input[type=submit]:hover {
+    background-color: darkred;
+}
+
+
 
 textarea {
     width: 100%;
@@ -358,7 +421,7 @@ textarea {
     height: 150px;
     padding: 5px 10px;
     box-sizing: border-box;
-    border: 2px solid darkgrey;
+    border: 2px solid darkred;
     border-radius: 3px;
     background-color: #f8f8f8;
 }
@@ -368,7 +431,7 @@ input[type=text] {
     max-width: 200px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkgrey;
+    border-bottom: 2px solid darkred;
     resize: vertical;
     background-color: #f8f8f8;
 }
@@ -378,62 +441,59 @@ input[type=email] {
     max-width: 200px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkgrey;
+    border-bottom: 2px solid darkred;
     background-color: #f8f8f8;
 }
 
 
 input[type=submit] {
-            background-color: lightgray;
-            border: none;
-            color: black;
-            margin-left: 1vw;
-            padding: 12px 12px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 10px;
-            cursor: pointer;
-        }
+    background-color: #d3072a;
+    border: none;
+    color: black;
+    margin-left: 1vw;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    cursor: pointer;
+}
 
-input[type=submit]:hover{
-            background-color: darkgray;
-        }
+input[type=submit]:hover {
+    background-color: darkred;
+}
 
-
-
-   /*  MEDIA Q*/
+/*  MEDIA Q*/
 
 @media screen and (min-width: 765px) {
 
-        .container {
+    .container {
 
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
     p {
-    font-size: 15px;
-}
+        font-size: 15px;
+    }
 
     .overst {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 7vw;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 7vw;
+    }
     .foot-wrap {
-            background-color: lightgray;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
     .knapper {
         text-align: center;
     }
 
-            button {
-            font-size: 13px;
-        }
+    button {
+        font-size: 13px;
+    }
 
     .navne {
         display: grid;
@@ -447,26 +507,32 @@ input[type=submit]:hover{
 @media screen and (min-width: 1200px) {
 
     .overst {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 4.5vw;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 4.5vw;
+    }
 
     .container {
 
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
     .kob {
 
-            max-width: 8vw;
-            max-height: 5vw;
+        width: 100px;
 
-        }
+    }
 
-        .navne {
+    .navne {
         display: grid;
         grid-template-columns: 10% 50%;
     }
+
+
+    .kort-beskrivelse {
+        grid-area: tekst;
+        margin: 1vw;
+    }
+
 }

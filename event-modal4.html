@@ -42,17 +42,16 @@
     </section>
     <!--nav-->
 
-    <div class="navigation">
-               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-        </a>
-        <div id="nav">
-            <a href="#om"><p class="navFont">Huset</p></a>
+    <div class="navigaton" id="nav">
+
+             <a href="#om"><p class="navFont">Huset</p></a>
             <a href="#udlejning"><p class="navFont">Udlejning</p></a>
             <a href="#ss"><p class="navFont">Scener og spisesteder</p></a>
             <a href="event-modal3.html"><p class="navFont">Events</p></a>
             <a href="#kontakt"><p class="navFont">Tag kontakt</p></a>
-        </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+        </a>
     </div>
     <!--search-->
     <!--
@@ -139,14 +138,6 @@
 
             <!--some-->
             <!--andre logoer-->
-
-            <div class="logocontainer">
-
-        <img class="logo" src="logo2.png">
-        <img class="logo" src="logo1.png">
-        <img class="logo" src="logo3.png">
-        </div>
-
         </section>
     </footer>
 
@@ -220,13 +211,13 @@
         }
 
         // NAV
-        function myFunction() {
-            var x = document.getElementById("nav");
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
+function myFunction() {
+    var x = document.getElementById("nav");
+    if (x.className === "navigaton") {
+        x.className += " responsive";
+    } else {
+        x.className = "navigaton";
+    }
         }
 
          // SCRIPT MODAL
