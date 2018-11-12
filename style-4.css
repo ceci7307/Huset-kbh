@@ -166,10 +166,9 @@ p {
 
 .event-article {
     display: grid;
-    grid-template-areas: "sted dato" "billede billede" "titel titel" "tekst tekst" "read kob";
-    margin: 1vw;
+    grid-template-areas: "billede billede titel titel dato sted read";
+    margin: 2vw;
     /*border: solid 2px #e6e6e6;*/
-    background-color: white;
 
 }
 
@@ -220,6 +219,9 @@ p {
 .data-billede {
     grid-area: billede;
     max-width: 100%;
+    position: absolute;
+    z-index: -1;
+    opacity: 1;
 }
 
 /*  Knapper til filtrering */
@@ -351,41 +353,8 @@ transition: all 0.4s ease 0s;
 /*  WP content */
 
 .frivillig-container {
-    margin: 3vw;
-    line-height: 1.6;
-        -webkit-columns: 100px 2; /* Chrome, Safari, Opera */
-    -moz-columns: 100px 2; /* Firefox */
-    columns: 100px 2;
-}
-.frivillig-container img {
-    width: 100%;
-    max-width: 230px;
-    max-height: 150px;
-}
 
-.frivillig-knapper{
-    text-align: center;
-    font-family: 'Hind Siliguri', sans-serif;
-}
-
-.frivillig-knap {
-color: darkred!important;
-text-transform: uppercase;
-background: whitesmoke;
-padding: 10px;
-border: 0px solid whitesmoke !important;
-    border-left: 1px solid darkred !important;
-border-radius: 0px;
-display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.frivillig-knap:hover {
-color: #ffffff !important;
-background: #d3072a;
-border-color: #d3072a !important;
-transition: all 0.4s ease 0s;
+    margin: 2vw;
 }
 
 
@@ -534,12 +503,6 @@ input[type=submit]:hover {
         grid-template-columns: 20% 50%;
     }
 
-    .frivillig-container img {
-    width: 100%;
-    max-width: 400px;
-    max-height: 250px;
-}
-
 
 }
 
@@ -574,11 +537,5 @@ input[type=submit]:hover {
         grid-area: tekst;
         margin: 1vw;
     }
-
-    .frivillig-container img {
-    width: 100%;
-    max-width: 600px;
-    max-height: 400px;
-}
 
 }

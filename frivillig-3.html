@@ -70,15 +70,6 @@
 
 
 <body>
-
-       <!--FRIVILLIG knapper-->
-    <div class="frivillig-knapper">
-
-      <a href="frivillig-2.html" class="frivillig-knap">Frivillig-teamet</a>
-          <a href="Blivfrivillig.html" class="frivillig-knap">Bliv frivillig</a>
-
-    </div>
-
     <!--FRIVILLIG billede-->
 
 
@@ -90,6 +81,26 @@
             <div class="txt"></div>
         </article>
     </main>
+
+
+
+
+    <!--FRIVILLIG Ansøgning-->
+
+    <div class="formular">
+        <h2>Vil du være med i frivillig-teamet?</h2>
+        <h3>Send os din ansøgning</h3>
+        <form>
+            <div class="navne">
+                <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
+                <p>Efternavn:</p><input type="text" placeholder="Dit efternavn...">
+                <p>E-mail:</p><input type="email" placeholder="Din e-mail..."> <br>
+            </div>
+            <p>Din besked:</p><textarea name="message" rows="10" cols="30" placeholder="Skriv lidt om dig selv og hvorfor du ønsker at blive frivillig hos Huset KBH..."></textarea>
+            <input type="submit" value="Send ansøgning">
+
+        </form>
+    </div>
 
     <footer>
         <!--adresse-->
@@ -132,7 +143,7 @@
         let frivilligContainer = document.querySelector(".frivillig-container");
 
         async function getJSON() {
-            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/pages/32");
+            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/bliv_frivillig");
             frivillige = await jsonData.json();
 
             console.log(frivillige);
