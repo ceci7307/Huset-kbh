@@ -95,25 +95,34 @@
 
 <body>
 
-    <!--FRIVILLIG knapper-->
-    <div class="frivillig-knapper">
-
-        <a href="frivillig-i-huset-kbh.html" class="frivillig-knap">Frivillig-teamet</a>
-        <a href="Blivfrivillig.html" class="frivillig-knap">Bliv frivillig</a>
-
-    </div>
-
-    <!--FRIVILLIG billede-->
 
 
-    <!--FRIVILLIG indhold-->
-    <main class="frivillig-container">
-        <h1>Frivillig i Huset Kbh</h1>
+    <!--Kontakt indhold-->
+    <main class="kontakt-container">
         <article class="pageview">
             <h2 frivillig-title></h2>
             <div class="txt"></div>
         </article>
     </main>
+
+
+
+
+    <!--kontakt Ansøgning-->
+
+    <div class="formular">
+        <h3>Send os en mail</h3>
+        <form>
+            <div class="navne">
+                <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
+                <p>Efternavn:</p><input type="text" placeholder="Dit efternavn...">
+                <p>E-mail:</p><input type="email" placeholder="Din e-mail adresse..."> <br>
+            </div>
+            <p>Din besked:</p><textarea name="message" rows="10" cols="30" placeholder="Skriv din besked til Huset Kbh..."></textarea>
+            <input type="submit" value="Send mail">
+
+        </form>
+    </div>
 
     <footer>
         <!--adresse-->
@@ -125,7 +134,8 @@
             <!--kontakt-->
             <div class="kontakt">
                 <h2>Kontakt</h2>
-                <p>Tlf: 21 51 21 51 <br> Mail: <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
+                <p>Tlf: 21 51 21 51 <br>Mail:
+                    <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
             </div>
             <!--åbningstider-->
             <div class="åbningstider">
@@ -158,21 +168,21 @@
     <script>
         // DOM loaded
         document.addEventListener("DOMContentLoaded", getJSON);
-        let frivillige;
-        let frivilligContainer = document.querySelector(".frivillig-container");
+        let kontakt;
+        let kontaktContainer = document.querySelector(".kontakt-container");
 
         async function getJSON() {
-            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/pages/32");
-            frivillige = await jsonData.json();
+            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/pages/186");
+            kontakt = await jsonData.json();
 
-            console.log(frivillige);
+            console.log(kontakt);
             visPage();
         }
 
         function visPage() {
-            console.log(frivillige);
+            console.log(kontakt);
 
-            document.querySelector(".txt").innerHTML = frivillige.content.rendered;
+            document.querySelector(".txt").innerHTML = kontakt.content.rendered;
         }
 
 

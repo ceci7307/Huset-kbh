@@ -5,20 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huset KBH events</title>
-    <!-- FavIcon   -->
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
     <!-- Fonte   -->
     <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
     <!-- search ikon   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- style css   -->
-    <link rel="stylesheet" href="style-3.css">
+    <link rel="stylesheet" href="style-4.css">
     <!-- burger menu   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -26,21 +18,15 @@
 <header>
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
-
-      <a href="forside.html">
-        <img src="huset-logo.png" class="huset-logo" alt="Husets logo">
-        </a>
-
         <div class="frivillig">
             <a href="frivillig-i-huset-kbh.html">
                 <p>Frivillig</p>
             </a>
-        <img src="menneske.png" class="menneske" alt="Husets logo">
         </div>
         <div class="nyhedsbrev">
             <button onclick="rolldown()" class="dropbtn"><p>Nyhedsbrev</p></button>
-                    <img src="brev.png"; class="menneske" alt="Husets logo">
             <div id="formDropdown" class="dropdown-form">
+
                 <form class="newsletter">
                     <div class="navne-newsletter">
                         <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
@@ -54,10 +40,6 @@
 
         </div>
     </section>
-
-    <!--Huset Logo-->
-
-
     <!--nav-->
 
     <div class="navigation">
@@ -65,10 +47,10 @@
     <i class="fa fa-bars"></i>
         </a>
         <div id="nav">
-            <a href="om-huset.html">
+            <a href="#om">
                 <p class="navFont">Huset</p>
             </a>
-            <a href="udlejning.html">
+            <a href="#udlejning">
                 <p class="navFont">Udlejning</p>
             </a>
             <a href="#ss">
@@ -77,7 +59,7 @@
             <a href="eventsite.html">
                 <p class="navFont">Events</p>
             </a>
-            <a href="kontakt.html">
+            <a href="#kontakt">
                 <p class="navFont">Tag kontakt</p>
             </a>
         </div>
@@ -97,10 +79,17 @@
 
 
 <body>
-    <!-- SPLASH billede -->
-    <img src="splash.jpg" alt="splash billede" class="splash">
+    <!--KNAPPER TIL FILTRERING-->
+    <div class="knapper">
+        <button class="eventtype" data-event="events">Kalenderoversigt</button>
+        <button class="eventtype" data-event="Musik">Musik</button>
+        <button class="eventtype" data-event="Film">Film</button>
+        <button class="eventtype" data-event="Teater">Teater</button>
+        <button class="eventtype" data-event="Ord">Ord</button>
+        <button class="eventtype" data-event="Andet">Andet</button>
+    </div>
 
-    <h2>Denne uges events i Huset Kbh:</h2>
+
     <!-- MENU MODAL -->
     <section id="modal">
 
@@ -130,10 +119,12 @@
        <p class="data-pris"></p>
        <p class="data-eventtype"></p>
 -->
+<!--
        <p class="kort-beskrivelse"></p>
 <div class="lang-beskrivelse"></div>
+-->
         <img class="data-billede" src="" alt="">
-        <button class="kob"><p>Køb billet</p></button>
+<!--    <button class="kob"><p>Køb billet</p></button>-->
           <a href="#" class="read"><p>Yderligere info</p></a>
        </article>
     </template>
@@ -157,21 +148,17 @@
                 <p>Søndag-tordag 12:00-00:00 <br> Fredag-lørdag 12:00-02:00</p>
             </div>
 
+
+            <!--some-->
             <!--andre logoer-->
 
             <div class="logocontainer">
 
                 <img class="logo" src="logo2.png">
                 <img class="logo" src="logo1.png">
-                <img class="logo" src="logo3.png"><br>
-                <!--some-->
-                <a href="https://www.facebook.com/Huset.Koebenhavn/">
-                <img class="some" src="facebook.png" alt="Facebook">
-                </a>
-                <a href="https://www.instagram.com/husetkbh/">
-                <img class="some" src="insta.png" alt="Instagram">
-                </a>
+                <img class="logo" src="logo3.png">
             </div>
+
         </section>
     </footer>
 
@@ -212,12 +199,12 @@
                     klon.querySelector(".data-tid").textContent = "Dato: " + event.acf.tid;
                     klon.querySelector(".data-sted").textContent = event.acf.sted;
                     //                    klon.querySelector(".data-pris").textContent = event.acf.pris;
-                    klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
+                    //klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
                     //klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
                     klon.querySelector("img").src = event.acf.billede;
-                    klon.querySelector("button").src = "Køb billet " + event.acf.kob;
+                    //klon.querySelector("button").src = "Køb billet " + event.acf.kob;
 
-                    klon.querySelector(".read").addEventListener("click", () => {
+                    klon.querySelector("img").addEventListener("click", () => {
                         visModal(event);
                     });
 

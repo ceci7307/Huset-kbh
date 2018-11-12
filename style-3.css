@@ -12,9 +12,12 @@ body {
 header {
     margin-bottom: 5vw;
 }
-.logo-huset{
+
+
+.huset-logo{
     background-color: black;
-    text-align: center;
+    max-width: 60px;
+    padding: 1em;
 }
 
 /*  egen font */
@@ -31,6 +34,7 @@ h1, h2, h3, h4, h5, h6, p, ul, .kort-beskrivelse {
 
 p {
     font-size: 14px;
+    line-height: 1.8;
 }
 
 /*  Øverst i headeren*/
@@ -39,9 +43,18 @@ p {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 10vw;
+    background-color: black;
 }
 
+.menneske {
+    max-width: 20px;
+    padding-top: 0.7em;
+}
+
+
 .frivillig {
+        display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-left: 1vw;
     background-color: black;
     text-align: center;
@@ -516,6 +529,25 @@ input[type=submit]:hover {
     background-color: #4056A1;
 }
 
+
+/*  ALLE ANDRE SIDER */
+
+.skab-container {
+    margin: 2vw;
+}
+
+.udlejning-container {
+    margin: 2vw;
+}
+
+.om-container {
+    margin: 2vw;
+}
+
+.kontakt-container {
+    margin: 2vw;
+}
+
 /*  MEDIA Q*/
 
 @media screen and (min-width: 765px) {
@@ -532,8 +564,8 @@ input[type=submit]:hover {
 
     .overst {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 7vw;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 8.2vw;
     }
     .foot-wrap {
         display: grid;
@@ -564,6 +596,30 @@ input[type=submit]:hover {
     margin: 1vw;
 }
 
+    .huset-logo{
+    max-width: 100px;
+    padding: 1em;
+}
+
+        .frivillig p{
+        font-size: 18px;
+    }
+    .nyhedsbrev p{
+        font-size: 18px;
+    }
+
+    .dropbtn {
+    max-width: 20vw;
+    max-height: 5vw;
+}
+
+    .udlejning-container {
+    line-height: 1.6;
+        -webkit-columns: 100px 2; /* Chrome, Safari, Opera */
+    -moz-columns: 100px 2; /* Firefox */
+    columns: 100px 2;
+}
+
 }
 
 
@@ -571,9 +627,14 @@ input[type=submit]:hover {
 
     .overst {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 4.5vw;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 5vw;
     }
+
+        .huset-logo{
+    max-width: 130px;
+    padding: 1em;
+}
 
     .container {
 
@@ -603,5 +664,6 @@ input[type=submit]:hover {
     max-width: 600px;
     max-height: 400px;
 }
+
 
 }

@@ -57,7 +57,7 @@
 
     <!--nav-->
 
-    <div class="navigation">
+<div class="navigation">
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
         </a>
@@ -94,21 +94,10 @@
 
 
 <body>
+    <!--INDHOLD-->
 
-    <!--FRIVILLIG knapper-->
-    <div class="frivillig-knapper">
-
-        <a href="frivillig-i-huset-kbh.html" class="frivillig-knap">Frivillig-teamet</a>
-        <a href="Blivfrivillig.html" class="frivillig-knap">Bliv frivillig</a>
-
-    </div>
-
-    <!--FRIVILLIG billede-->
-
-
-    <!--FRIVILLIG indhold-->
-    <main class="frivillig-container">
-        <h1>Frivillig i Huset Kbh</h1>
+        <main class="skab-container">
+        <h1>Skal dit næste event afholdes i Huset Kbh?</h1>
         <article class="pageview">
             <h2 frivillig-title></h2>
             <div class="txt"></div>
@@ -125,7 +114,8 @@
             <!--kontakt-->
             <div class="kontakt">
                 <h2>Kontakt</h2>
-                <p>Tlf: 21 51 21 51 <br> Mail: <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
+                <p>Tlf: 21 51 21 51 <br>Mail:
+                    <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
             </div>
             <!--åbningstider-->
             <div class="åbningstider">
@@ -158,21 +148,21 @@
     <script>
         // DOM loaded
         document.addEventListener("DOMContentLoaded", getJSON);
-        let frivillige;
-        let frivilligContainer = document.querySelector(".frivillig-container");
+        let skab;
+        let skabContainer = document.querySelector(".skab-container");
 
         async function getJSON() {
-            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/pages/32");
-            frivillige = await jsonData.json();
+            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/pages/40");
+            skab = await jsonData.json();
 
-            console.log(frivillige);
+            console.log(skab);
             visPage();
         }
 
         function visPage() {
-            console.log(frivillige);
+            console.log(skab);
 
-            document.querySelector(".txt").innerHTML = frivillige.content.rendered;
+            document.querySelector(".txt").innerHTML = skab.content.rendered;
         }
 
 
