@@ -5,11 +5,16 @@ img {
 body {
     margin: 0;
     width: 100%;
-    background-color: whitesmoke
+    background-color: whitesmoke;
+
 }
 
 header {
     margin-bottom: 5vw;
+}
+.logo-huset{
+    background-color: black;
+    text-align: center;
 }
 
 /*  egen font */
@@ -19,15 +24,8 @@ header {
     src: url("HUSET Regular.otf") format("opentype");
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul {
-    font-family: font-family: 'Hind Siliguri', sans-serif;
+h1, h2, h3, h4, h5, h6, p, ul, .kort-beskrivelse {
+    font-family: 'Hind Siliguri', sans-serif;
     color: #1c1c1c;
 }
 
@@ -39,15 +37,14 @@ p {
 
 .overst {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 10vw;
 }
 
 .frivillig {
-    border-right-style: solid;
-    border-color: darkred;
     padding-left: 1vw;
-    background-color: #d3072a;
+    background-color: black;
+    text-align: center;
 
 }
 
@@ -56,7 +53,10 @@ p {
 }
 
 .frivillig:hover {
-    background-color: darkred;
+    background-color:#4056A1 ;
+}
+.frivillig:hover p{
+    color: #C5CBE3;
 }
 
 .frivillig p {
@@ -66,7 +66,9 @@ p {
 
 .nyhedsbrev {
     padding-left: 1vw;
-    background-color: #d3072a;
+    background-color: black;
+    text-align: center;
+
 }
 
 .nyhedsbrev a {
@@ -74,7 +76,7 @@ p {
 }
 
 .nyhedsbrev:hover {
-    background-color: darkred;
+    background-color: #4056A1;
 }
 
 .nyhedsbrev p {
@@ -89,11 +91,14 @@ p {
     max-width: 25vw;
     max-height: 10vw;
     text-align: center;
-    background-color: #d3072a;
+    background-color: black;
 }
 
 .dropbtn:hover {
-    background-color: darkred;
+    background-color: #4056A1;
+}
+.dropbtn:hover p {
+    color: #C5CBE3 ;
 }
 
 .nyhedsbrev {
@@ -105,7 +110,7 @@ p {
     display: none;
     position: absolute;
     z-index: 1;
-    background-color: #d3072a;
+    background-color: #C5CBE3;
 }
 
 .show {
@@ -136,7 +141,7 @@ p {
 }
 
 .navigation a:hover {
-    background-color: #d3072a;
+    background-color: #C5CBE3;
 }
 
 .navigation a.icon {
@@ -153,7 +158,7 @@ p {
 .navFont::first-letter {
     font-family: HUSET Regular;
     font-size: 35px;
-    color: darkred;
+    color: #F13c20;
 }
 
 /*  INDHOLD*/
@@ -193,10 +198,14 @@ p {
 .kob {
     grid-area: kob;
     cursor: pointer;
-    border: solid 1px;
+    border: solid 1px #4056A1 ;
     width: 150px;
     margin-bottom: 2vw;
 
+}
+
+.kob p{
+    color: #4056A1 ;
 }
 
 .read {
@@ -207,7 +216,7 @@ p {
 }
 
 .read p {
-    color: darkred;
+    color: #4056A1;
 }
 
 
@@ -225,21 +234,20 @@ p {
 /*  Knapper til filtrering */
 
 .eventtype {
-    color: darkred!important;
+    color: #4056A1 !important;
 text-transform: uppercase;
 background: whitesmoke;
 padding: 10px;
 border: 0px solid whitesmoke !important;
-    border-left: 1px solid darkred !important;
+    border-left: 1px solid #4056A1  !important;
 border-radius: 0px;
 display: inline-block;
     cursor: pointer;
 }
 
 .eventtype:hover {
-color: #ffffff !important;
-background: #d3072a;
-border-color: #d3072a !important;
+background: #C5CBE3;
+border-color: #C5CBE3 !important;
 transition: all 0.4s ease 0s;
 }
 
@@ -265,7 +273,7 @@ transition: all 0.4s ease 0s;
 /*  FOOTER*/
 
 .foot-wrap {
-    background-color: #f2f1f1;
+    background-color: #C5CBE3;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -276,18 +284,22 @@ transition: all 0.4s ease 0s;
 
 .adresse h2 {
     font-size: 18px;
+    color: #001d81;
 }
 
 .adresse p {
     font-size: 14px;
+    color: #4056A1;
 }
 
 .kontakt h2 {
     font-size: 18px;
+    color: #001d81;
 }
 
 .kontakt p {
     font-size: 14px;
+    color: #4056A1;
 }
 
 .åbningstider {
@@ -296,10 +308,12 @@ transition: all 0.4s ease 0s;
 
 .åbningstider h2 {
     font-size: 18px;
+    color: #001d81;
 }
 
 .åbningstider p {
     font-size: 14px;
+    color: #4056A1;
 }
 
 .logocontainer {
@@ -309,6 +323,11 @@ transition: all 0.4s ease 0s;
 .logo {
     max-width: 60px;
 
+}
+
+.some{
+    max-width: 20px;
+    margin: 3vw;
 }
 
 /*  MODAL*/
@@ -337,6 +356,7 @@ transition: all 0.4s ease 0s;
 #modal-tekst {
     text-align: left;
     margin: 1em;
+    padding-bottom: 1vw;
 }
 
 #modal.vis {
@@ -369,12 +389,12 @@ transition: all 0.4s ease 0s;
 }
 
 .frivillig-knap {
-color: darkred!important;
+color: #4056A1 !important;
 text-transform: uppercase;
 background: whitesmoke;
 padding: 10px;
 border: 0px solid whitesmoke !important;
-    border-left: 1px solid darkred !important;
+    border-left: 1px solid #4056A1 !important;
 border-radius: 0px;
 display: inline-block;
     cursor: pointer;
@@ -382,9 +402,8 @@ display: inline-block;
 }
 
 .frivillig-knap:hover {
-color: #ffffff !important;
-background: #d3072a;
-border-color: #d3072a !important;
+background: #C5CBE3;
+border-color: #4056A1!important;
 transition: all 0.4s ease 0s;
 }
 
@@ -400,7 +419,7 @@ transition: all 0.4s ease 0s;
 }
 
 .formular {
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 form {
@@ -414,7 +433,7 @@ form {
     height: 27px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkred;
+    border-bottom: 2px solid #4056A1;
     resize: vertical;
     background-color: white;
 }
@@ -425,7 +444,7 @@ form {
     height: 27px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkred;
+    border-bottom: 2px solid #4056A1;
     background-color: white;
 }
 
@@ -444,7 +463,7 @@ form {
 }
 
 .newsletter input[type=submit]:hover {
-    background-color: darkred;
+    background-color: #4056A1;
 }
 
 
@@ -455,9 +474,9 @@ textarea {
     height: 150px;
     padding: 5px 10px;
     box-sizing: border-box;
-    border: 2px solid darkred;
+    border: 2px solid #4056A1;
     border-radius: 3px;
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 input[type=text] {
@@ -465,9 +484,9 @@ input[type=text] {
     max-width: 200px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkred;
+    border-bottom: 2px solid #4056A1;
     resize: vertical;
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 input[type=email] {
@@ -475,13 +494,13 @@ input[type=email] {
     max-width: 200px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid darkred;
-    background-color: #f8f8f8;
+    border-bottom: 2px solid #4056A1 ;
+    background-color: white;
 }
 
 
 input[type=submit] {
-    background-color: #d3072a;
+    background-color: #C5CBE3;
     border: none;
     color: black;
     margin-left: 1vw;
@@ -494,7 +513,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: darkred;
+    background-color: #4056A1;
 }
 
 /*  MEDIA Q*/
@@ -540,6 +559,10 @@ input[type=submit]:hover {
     max-height: 250px;
 }
 
+    .some{
+    max-width: 20px;
+    margin: 1vw;
+}
 
 }
 

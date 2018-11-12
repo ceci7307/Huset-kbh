@@ -5,11 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huset KBH events</title>
-        <!-- Fonte   -->
+    <!-- FavIcon   -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Fonte   -->
     <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
     <!-- search ikon   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <!-- style css   -->
+    <!-- style css   -->
     <link rel="stylesheet" href="style-3.css">
     <!-- burger menu   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,15 +26,19 @@
 <header>
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
+      <div class="logo-huset">
+        <img src="huset-logo.png" class="huset-logo" alt="Husets logo">
+        </div>
+
         <div class="frivillig">
             <a href="frivillig-i-huset-kbh.html">
                 <p>Frivillig</p>
             </a>
+
         </div>
         <div class="nyhedsbrev">
             <button onclick="rolldown()" class="dropbtn"><p>Nyhedsbrev</p></button>
             <div id="formDropdown" class="dropdown-form">
-
                 <form class="newsletter">
                     <div class="navne-newsletter">
                         <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
@@ -40,18 +52,32 @@
 
         </div>
     </section>
+
+    <!--Huset Logo-->
+
+
     <!--nav-->
 
     <div class="navigation">
-               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
         </a>
         <div id="nav">
-            <a href="#om"><p class="navFont">Huset</p></a>
-            <a href="#udlejning"><p class="navFont">Udlejning</p></a>
-            <a href="#ss"><p class="navFont">Scener og spisesteder</p></a>
-            <a href="eventsite.html"><p class="navFont">Events</p></a>
-            <a href="#kontakt"><p class="navFont">Tag kontakt</p></a>
+            <a href="#om">
+                <p class="navFont">Huset</p>
+            </a>
+            <a href="#udlejning">
+                <p class="navFont">Udlejning</p>
+            </a>
+            <a href="#ss">
+                <p class="navFont">Scener og spisesteder</p>
+            </a>
+            <a href="eventsite.html">
+                <p class="navFont">Events</p>
+            </a>
+            <a href="#kontakt">
+                <p class="navFont">Tag kontakt</p>
+            </a>
         </div>
     </div>
     <!--search-->
@@ -89,7 +115,7 @@
             <h2 class="modal-titel"></h2>
             <br>
             <div id="modal-tekst">
-               <p class="modal-kortbeskrivelse"></p>
+                <p class="modal-kortbeskrivelse"></p>
                 <br>
                 <p class="modal-langbeskrivelse"></p>
             </div>
@@ -128,7 +154,7 @@
             <!--kontakt-->
             <div class="kontakt">
                 <h2>Kontakt</h2>
-                <p>Tlf: 21 51 21 51 <br> Mail: info@huset-kbh.dk</p>
+                <p>Tlf: 21 51 21 51 <br> Mail: <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
             </div>
             <!--åbningstider-->
             <div class="åbningstider">
@@ -136,17 +162,21 @@
                 <p>Søndag-tordag 12:00-00:00 <br> Fredag-lørdag 12:00-02:00</p>
             </div>
 
-
-            <!--some-->
             <!--andre logoer-->
 
             <div class="logocontainer">
 
-        <img class="logo" src="logo2.png">
-        <img class="logo" src="logo1.png">
-        <img class="logo" src="logo3.png">
-        </div>
-
+                <img class="logo" src="logo2.png">
+                <img class="logo" src="logo1.png">
+                <img class="logo" src="logo3.png"><br>
+                <!--some-->
+                <a href="https://www.facebook.com/Huset.Koebenhavn/">
+                <img class="some" src="facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/husetkbh/">
+                <img class="some" src="insta.png" alt="Instagram">
+                </a>
+            </div>
         </section>
     </footer>
 
@@ -192,7 +222,7 @@
                     klon.querySelector("img").src = event.acf.billede;
                     klon.querySelector("button").src = "Køb billet " + event.acf.kob;
 
-                    klon.querySelector("img").addEventListener("click", () => {
+                    klon.querySelector(".read").addEventListener("click", () => {
                         visModal(event);
                     });
 
@@ -229,13 +259,13 @@
             }
         }
 
-         // SCRIPT MODAL
+        // SCRIPT MODAL
         function visModal(eventet) {
             let modal = document.querySelector("#modal");
             modal.classList.add("vis");
             modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
             modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
-             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+            modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
 
             modal.querySelector(".modal-billede").src = eventet.acf.billede;
             modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;
@@ -248,13 +278,11 @@
             modal.classList.remove("vis");
         }
 
-                // Nyhedsbrev rolldown
+        // Nyhedsbrev rolldown
 
         function rolldown() {
-    document.getElementById("formDropdown").classList.toggle("show");
-}
-
-
+            document.getElementById("formDropdown").classList.toggle("show");
+        }
     </script>
 </body>
 

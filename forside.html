@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huset KBH events</title>
-        <!-- Fonte   -->
+    <!-- Fonte   -->
     <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
     <!-- search ikon   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <!-- style css   -->
+    <!-- style css   -->
     <link rel="stylesheet" href="style-4.css">
     <!-- burger menu   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,15 +43,25 @@
     <!--nav-->
 
     <div class="navigation">
-               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
         </a>
         <div id="nav">
-            <a href="#om"><p class="navFont">Huset</p></a>
-            <a href="#udlejning"><p class="navFont">Udlejning</p></a>
-            <a href="#ss"><p class="navFont">Scener og spisesteder</p></a>
-            <a href="eventsite.html"><p class="navFont">Events</p></a>
-            <a href="#kontakt"><p class="navFont">Tag kontakt</p></a>
+            <a href="#om">
+                <p class="navFont">Huset</p>
+            </a>
+            <a href="#udlejning">
+                <p class="navFont">Udlejning</p>
+            </a>
+            <a href="#ss">
+                <p class="navFont">Scener og spisesteder</p>
+            </a>
+            <a href="eventsite.html">
+                <p class="navFont">Events</p>
+            </a>
+            <a href="#kontakt">
+                <p class="navFont">Tag kontakt</p>
+            </a>
         </div>
     </div>
     <!--search-->
@@ -89,7 +99,7 @@
             <h2 class="modal-titel"></h2>
             <br>
             <div id="modal-tekst">
-               <p class="modal-kortbeskrivelse"></p>
+                <p class="modal-kortbeskrivelse"></p>
                 <br>
                 <p class="modal-langbeskrivelse"></p>
             </div>
@@ -130,7 +140,7 @@
             <!--kontakt-->
             <div class="kontakt">
                 <h2>Kontakt</h2>
-                <p>Tlf: 21 51 21 51 <br> Mail: info@huset-kbh.dk</p>
+                <p>Tlf: 21 51 21 51 <br> Mail: <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
             </div>
             <!--åbningstider-->
             <div class="åbningstider">
@@ -144,10 +154,10 @@
 
             <div class="logocontainer">
 
-        <img class="logo" src="logo2.png">
-        <img class="logo" src="logo1.png">
-        <img class="logo" src="logo3.png">
-        </div>
+                <img class="logo" src="logo2.png">
+                <img class="logo" src="logo1.png">
+                <img class="logo" src="logo3.png">
+            </div>
 
         </section>
     </footer>
@@ -231,13 +241,13 @@
             }
         }
 
-         // SCRIPT MODAL
+        // SCRIPT MODAL
         function visModal(eventet) {
             let modal = document.querySelector("#modal");
             modal.classList.add("vis");
             modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
             modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
-             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+            modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
 
             modal.querySelector(".modal-billede").src = eventet.acf.billede;
             modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;
@@ -250,13 +260,11 @@
             modal.classList.remove("vis");
         }
 
-                // Nyhedsbrev rolldown
+        // Nyhedsbrev rolldown
 
         function rolldown() {
-    document.getElementById("formDropdown").classList.toggle("show");
-}
-
-
+            document.getElementById("formDropdown").classList.toggle("show");
+        }
     </script>
 </body>
 
