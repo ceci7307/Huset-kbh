@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huset KBH</title>
+    <title>Huset KBH events</title>
+        <!-- Fonte   -->
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri" rel="stylesheet">
     <!-- search ikon   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <!-- style css   -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-4.css">
     <!-- burger menu   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -17,29 +19,40 @@
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
         <div class="frivillig">
-            <a href="#">
+            <a href="frivillig-i-huset-kbh.html">
                 <p>Frivillig</p>
             </a>
         </div>
         <div class="nyhedsbrev">
-            <a href="#">
-                <p>Nyhedsbrev</p>
-            </a>
+            <button onclick="rolldown()" class="dropbtn"><p>Nyhedsbrev</p></button>
+            <div id="formDropdown" class="dropdown-form">
+
+                <form class="newsletter">
+                    <div class="navne-newsletter">
+                        <p>Fornavn:</p><input type="text" placeholder="Dit navn...">
+                        <p>Efternavn:</p><input type="text" placeholder="Dit efternavn...">
+                        <p>E-mail:</p><input type="email" placeholder="Din e-mail..."> <br>
+                    </div>
+                    <input type="submit" value="Tilmeld nyhedsbrev">
+
+                </form>
+            </div>
+
         </div>
     </section>
     <!--nav-->
 
-    <div class="navigaton">
-        <div id="nav">
-            <a href="#om">Huset</a>
-            <a href="#udlejning">Udlejning</a>
-            <a href="#ss">Scener og spisesteder</a>
-            <a href="#events">Events</a>
-            <a href="#kontakt">Tag kontakt</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <div class="navigation">
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
         </a>
+        <div id="nav">
+            <a href="#om"><p class="navFont">Huset</p></a>
+            <a href="#udlejning"><p class="navFont">Udlejning</p></a>
+            <a href="#ss"><p class="navFont">Scener og spisesteder</p></a>
+            <a href="eventsite.html"><p class="navFont">Events</p></a>
+            <a href="#kontakt"><p class="navFont">Tag kontakt</p></a>
+        </div>
     </div>
     <!--search-->
     <!--
@@ -56,11 +69,6 @@
 
 
 <body>
-
-    <!--forside indhold-->
-    <img src="#" alt="forside-splash">
-    <h1>Denne uges events</h1>
-
     <!--KNAPPER TIL FILTRERING-->
     <div class="knapper">
         <button class="eventtype" data-event="events">Kalenderoversigt</button>
@@ -72,21 +80,42 @@
     </div>
 
 
+    <!-- MENU MODAL -->
+    <section id="modal">
+
+        <button class="luk">Luk</button>
+        <div id="modal-content">
+            <img class="modal-billede" src="" alt=""><br>
+            <h2 class="modal-titel"></h2>
+            <br>
+            <div id="modal-tekst">
+               <p class="modal-kortbeskrivelse"></p>
+                <br>
+                <p class="modal-langbeskrivelse"></p>
+            </div>
+        </div>
+    </section>
+
+
     <!--TEMPLATE-->
     <section class="container"></section>
 
     <template id="event-template">
       <article class="event-article">
        <h2 class="data-titel"></h2>
-          <p class="data-dato"></p>
        <p class="data-tid"></p>
        <p class="data-sted"></p>
+<!--
        <p class="data-pris"></p>
-       <p class="eventtype"></p>
+       <p class="data-eventtype"></p>
+-->
+<!--
        <p class="kort-beskrivelse"></p>
 <div class="lang-beskrivelse"></div>
+-->
         <img class="data-billede" src="" alt="">
-        <a href="" class="kob"><p>Køb billet</p></a>
+<!--    <button class="kob"><p>Køb billet</p></button>-->
+          <a href="#" class="read"><p>Yderligere info</p></a>
        </article>
     </template>
 
@@ -112,6 +141,14 @@
 
             <!--some-->
             <!--andre logoer-->
+
+            <div class="logocontainer">
+
+        <img class="logo" src="logo2.png">
+        <img class="logo" src="logo1.png">
+        <img class="logo" src="logo3.png">
+        </div>
+
         </section>
     </footer>
 
@@ -152,10 +189,14 @@
                     klon.querySelector(".data-tid").textContent = "Dato: " + event.acf.tid;
                     klon.querySelector(".data-sted").textContent = event.acf.sted;
                     //                    klon.querySelector(".data-pris").textContent = event.acf.pris;
-                    klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
-                    //                    klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
+                    //klon.querySelector(".kort-beskrivelse").textContent = event.acf.beskrivelse;
+                    //klon.querySelector(".lang-beskrivelse").innerHTML = event.content.rendered;
                     klon.querySelector("img").src = event.acf.billede;
-                    klon.querySelector("a").src = "Køb billet " + event.acf.kob;
+                    //klon.querySelector("button").src = "Køb billet " + event.acf.kob;
+
+                    klon.querySelector("img").addEventListener("click", () => {
+                        visModal(event);
+                    });
 
                     eventContainer.appendChild(klon);
                 }
@@ -189,6 +230,33 @@
                 x.style.display = "block";
             }
         }
+
+         // SCRIPT MODAL
+        function visModal(eventet) {
+            let modal = document.querySelector("#modal");
+            modal.classList.add("vis");
+            modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
+            modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
+             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+
+            modal.querySelector(".modal-billede").src = eventet.acf.billede;
+            modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;
+            modal.querySelector(".luk").addEventListener("click", skjulModal);
+
+        }
+
+        function skjulModal() {
+
+            modal.classList.remove("vis");
+        }
+
+                // Nyhedsbrev rolldown
+
+        function rolldown() {
+    document.getElementById("formDropdown").classList.toggle("show");
+}
+
+
     </script>
 </body>
 
