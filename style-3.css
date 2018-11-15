@@ -9,14 +9,10 @@ body {
 
 }
 
-header {
-    margin-bottom: 5vw;
-}
-
 
 .huset-logo{
     background-color: black;
-    max-width: 60px;
+    max-width: 27px;
     padding: 1em;
 }
 
@@ -30,6 +26,10 @@ header {
 h1, h2, h3, h4, h5, h6, p, ul, .kort-beskrivelse {
     font-family: 'Hind Siliguri', sans-serif;
     color: #1c1c1c;
+}
+
+h2 {
+    margin: 2vw;
 }
 
 p {
@@ -124,6 +124,12 @@ p {
     position: absolute;
     z-index: 1;
     background-color: #C5CBE3;
+    max-width: 120px;
+}
+
+.newsletter input[type=submit]{
+    max-width: 70px;
+    text-align: left;
 }
 
 .show {
@@ -132,39 +138,60 @@ p {
 
 
 
-
 /*  NAV*/
 
-.navigation {
-    background-color: white;
-    max-width: 480px;
-    overflow: hidden;
+.topnav {
+  overflow: hidden;
+  background-color: whitesmoke;
+    width: 550px;
+    margin: auto;
 }
 
-#nav {
-    display: none;
+.topnav a {
+  float: left;
+  display: block;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.navigation a {
+.topnav a:hover {
+  background-color: #C5CBE3;
+  color: black;
+}
+
+.topnav .icon {
+  display: none;
     color: black;
-    padding: 1px 11px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
 }
 
-.navigation a:hover {
-    background-color: #C5CBE3;
+@media screen and (max-width: 600px) {
+  .topnav a {
+      display: none;
+    }
+  .topnav a.icon {
+    float: left;
+    display: block;
+  }
 }
 
-.navigation a.icon {
-    background: whitesmoke;
-    display: block;
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
     right: 0;
     top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
-*/ .navFont {
+.navFont {
     font-size: 15px;
 }
 
@@ -184,7 +211,7 @@ p {
 
 .event-article {
     display: grid;
-    grid-template-areas: "sted dato" "billede billede" "titel titel" "tekst tekst" "read kob";
+    grid-template-areas: "sted dato dato" "billede billede billede" "titel titel titel" "tekst tekst tekst" "read pris kob";
     margin: 1vw;
     /*border: solid 2px #e6e6e6;*/
     background-color: white;
@@ -193,6 +220,11 @@ p {
 
 #more {display: none;}
 
+.data-pris {
+    grid-area: pris;
+    text-align: center;
+    color: #4056A1 ;
+}
 
 .data-titel {
     grid-area: titel;
@@ -214,6 +246,7 @@ p {
     border: solid 1px #4056A1 ;
     width: 150px;
     margin-bottom: 2vw;
+    justify-content: center;
 
 }
 
@@ -331,6 +364,7 @@ transition: all 0.4s ease 0s;
 
 .logocontainer {
     text-align: center;
+    padding-top: 2vw;
 }
 
 .logo {
@@ -546,6 +580,7 @@ input[type=submit]:hover {
 
 .kontakt-container {
     margin: 2vw;
+    text-align: center;
 }
 
 /*  MEDIA Q*/
@@ -618,6 +653,15 @@ input[type=submit]:hover {
         -webkit-columns: 100px 2; /* Chrome, Safari, Opera */
     -moz-columns: 100px 2; /* Firefox */
     columns: 100px 2;
+}
+
+    .dropdown-form {
+    max-width: 1000px;
+}
+
+.newsletter input[type=submit]{
+    max-width: 100px;
+    text-align: left;
 }
 
 }

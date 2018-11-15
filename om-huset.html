@@ -35,11 +35,11 @@
             <a href="frivillig-i-huset-kbh.html">
                 <p>Frivillig</p>
             </a>
-        <img src="menneske.png" class="menneske" alt="Husets logo">
+
         </div>
         <div class="nyhedsbrev">
             <button onclick="rolldown()" class="dropbtn"><p>Nyhedsbrev</p></button>
-                    <img src="brev.png"; class="menneske" alt="Husets logo">
+
             <div id="formDropdown" class="dropdown-form">
                 <form class="newsletter">
                     <div class="navne-newsletter">
@@ -47,7 +47,7 @@
                         <p>Efternavn:</p><input type="text" placeholder="Dit efternavn...">
                         <p>E-mail:</p><input type="email" placeholder="Din e-mail..."> <br>
                     </div>
-                    <input type="submit" value="Tilmeld nyhedsbrev">
+                    <input type="submit" value="Tilmeld">
 
                 </form>
             </div>
@@ -57,27 +57,25 @@
 
     <!--nav-->
 
-    <div class="navigation">
+<div class="topnav" id="nav">
+        <a href="om-huset.html">
+            <p class="navFont">Huset</p>
+        </a>
+        <a href="udlejning.html">
+            <p class="navFont">Udlejning</p>
+        </a>
+        <a href="#ss">
+            <p class="navFont">Scener og spisesteder</p>
+        </a>
+        <a href="eventsite.html">
+            <p class="navFont">Events</p>
+        </a>
+        <a href="kontakt.html">
+            <p class="navFont">Tag kontakt</p>
+        </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
-        </a>
-        <div id="nav">
-            <a href="om-huset.html">
-                <p class="navFont">Huset</p>
-            </a>
-            <a href="udlejning.html">
-                <p class="navFont">Udlejning</p>
-            </a>
-            <a href="#ss">
-                <p class="navFont">Scener og spisesteder</p>
-            </a>
-            <a href="eventsite.html">
-                <p class="navFont">Events</p>
-            </a>
-            <a href="kontakt.html">
-                <p class="navFont">Tag kontakt</p>
-            </a>
-        </div>
+  </a>
     </div>
     <!--search-->
     <!--
@@ -112,7 +110,7 @@
         </article>
     </main>
 
-    <footer>
+<footer>
         <!--adresse-->
         <section class="foot-wrap">
             <div class="adresse">
@@ -122,33 +120,33 @@
             <!--kontakt-->
             <div class="kontakt">
                 <h2>Kontakt</h2>
-                <p>Tlf: 21 51 21 51 <br>Mail:
-                    <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
+                <p>Tlf: 21 51 21 51 <br> Mail: <a href="mailto:info@huset-kbh.dk" target="_top">info@huset-kbh.dk</a></p>
             </div>
             <!--åbningstider-->
             <div class="åbningstider">
+                <a href="kontakt.html">
                 <h2>Åbningstider</h2>
-                <p>Søndag-tordag 12:00-00:00 <br> Fredag-lørdag 12:00-02:00</p>
+                </a>
             </div>
 
-
             <!--andre logoer-->
-       <div class="logocontainer">
+
+            <div class="logocontainer">
 
                 <img class="logo" src="logo2.png">
                 <img class="logo" src="logo1.png">
                 <img class="logo" src="logo3.png"><br>
-            <!--some-->
-               <a href="https://www.facebook.com/Huset.Koebenhavn/">
+                <!--some-->
+                <a href="https://www.facebook.com/Huset.Koebenhavn/">
                 <img class="some" src="facebook.png" alt="Facebook">
                 </a>
                 <a href="https://www.instagram.com/husetkbh/">
                 <img class="some" src="insta.png" alt="Instagram">
                 </a>
             </div>
-
         </section>
     </footer>
+
 
 
 
@@ -175,14 +173,14 @@
 
 
         // NAV
-        function myFunction() {
-            var x = document.getElementById("nav");
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
+function myFunction() {
+    var x = document.getElementById("nav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
         // Nyhedsbrev rolldown
 
