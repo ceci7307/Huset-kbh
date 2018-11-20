@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huset KBH events</title>
+    <title>Huset KBH events og arrangementer</title>
+    <meta name="description" content="I Huset Kbh arrangeres der hele tiden adskillige events. Er du interesseret i scenekunst, musik, spil og film? Så er Huset noget for dig!">
     <!-- FavIcon   -->
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,7 +24,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<header>
+
+<body>
+   <header>
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
 
@@ -94,7 +97,6 @@
 </header>
 
 
-<body>
     <!--KNAPPER TIL FILTRERING-->
     <div class="knapper">
         <button class="eventtype" data-event="events">Kalenderoversigt</button>
@@ -111,14 +113,21 @@
 
         <button class="luk">Luk</button>
         <div id="modal-content">
-            <img class="modal-billede" src="" alt=""><br>
-            <h2 class="modal-titel"></h2>
+        <img class="modal-billede" src="" alt=""><br><br><br>
+           <div id="modal-overskrift">
+            <h3 class="modal-eventtype"></h3>
+            <h1 class="modal-titel"></h1>
+            <p class="modal-tid"></p>
+            </div>
             <br>
             <div id="modal-tekst">
                 <p class="modal-kortbeskrivelse"></p>
                 <br>
                 <p class="modal-langbeskrivelse"></p>
             </div>
+            <button class="modal-kob"><p>Køb billet</p></button>
+            <!-- Facebook -->
+            <br><br><br>
         </div>
     </section>
 
@@ -128,7 +137,7 @@
 
     <template id="event-template">
       <article class="event-article">
-       <h2 class="data-titel"></h2>
+       <h1 class="data-titel"></h1>
        <p class="data-tid"></p>
        <p class="data-sted"></p>
 
@@ -167,9 +176,9 @@
 
             <div class="logocontainer">
 
-                <img class="logo" src="logo2.png">
-                <img class="logo" src="logo1.png">
-                <img class="logo" src="logo3.png"><br>
+                <img class="logo" src="logo2.png" alt="tuborg">
+                <img class="logo" src="logo1.png" alt="Dansk Live">
+                <img class="logo" src="logo3.png" alt="Københavns Kommune"><br>
                 <!--some-->
                 <a href="https://www.facebook.com/Huset.Koebenhavn/">
                 <img class="some" src="facebook.png" alt="Facebook">
@@ -196,7 +205,7 @@
 
         // Hent json
         async function getJSON() {
-            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/" + endPoint);
+            let jsonData = await fetch("http://digcon.dk/kea/2SEM/Husetkbh/wordpress/wp-json/wp/v2/" + endPoint + "?per_page=100");
             events = await jsonData.json();
 
             console.log(events);
@@ -264,9 +273,12 @@ function myFunction() {
         function visModal(eventet) {
             let modal = document.querySelector("#modal");
             modal.classList.add("vis");
+            modal.querySelector(".modal-eventtype").textContent = eventet.acf.eventtype;
             modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
+            modal.querySelector(".modal-tid").textContent = "Dato: " + eventet.acf.tid;
             modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+            modal.querySelector("button").src = "Køb billet " + eventet.acf.kob;
 
             modal.querySelector(".modal-billede").src = eventet.acf.billede;
             modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;

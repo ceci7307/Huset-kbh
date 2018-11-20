@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huset KBH events</title>
+    <title>Huset København - Forside</title>
+    <meta name="description" content="Samlingspunkt Indre By. Huset KBH er Danmarks første og største kulturhus og tilbyder både koncerter, fordrag, biograf og teater.">
     <!-- FavIcon   -->
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,7 +24,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<header>
+
+<body>
+
+   <header>
     <!--bliv frivillig / Nyhedsbrev-->
     <section class="overst">
 
@@ -94,7 +98,6 @@
 </header>
 
 
-<body>
     <!-- SPLASH billede -->
 
     <div class="splash-container">
@@ -103,22 +106,28 @@
 
     <!-- MENU MODAL -->
 
-    <h2>Denne uges events i Huset Kbh:</h2>
+    <h1 id="forside-h1">Denne uges events i Huset Kbh:</h1>
     <section id="modal">
 
         <button class="luk">Luk</button>
         <div id="modal-content">
-            <img class="modal-billede" src="" alt=""><br>
+        <img class="modal-billede" src="" alt=""><br><br><br>
+           <div id="modal-overskrift">
+            <h3 class="modal-eventtype"></h3>
             <h2 class="modal-titel"></h2>
+            <p class="modal-tid"></p>
+            </div>
             <br>
             <div id="modal-tekst">
                 <p class="modal-kortbeskrivelse"></p>
                 <br>
                 <p class="modal-langbeskrivelse"></p>
             </div>
+            <button class="modal-kob"><p>Køb billet</p></button>
+            <!-- Facebook -->
+            <br><br><br>
         </div>
     </section>
-
 
     <!--TEMPLATE-->
     <section class="container"></section>
@@ -164,9 +173,9 @@
 
             <div class="logocontainer">
 
-                <img class="logo" src="logo2.png">
-                <img class="logo" src="logo1.png">
-                <img class="logo" src="logo3.png"><br>
+                <img class="logo" src="logo2.png" alt="tuborg">
+                <img class="logo" src="logo1.png" alt="Dansk Live">
+                <img class="logo" src="logo3.png" alt="Københavns kommune"><br>
                 <!--some-->
                 <a href="https://www.facebook.com/Huset.Koebenhavn/">
                 <img class="some" src="facebook.png" alt="Facebook">
@@ -261,15 +270,19 @@ function myFunction() {
         function visModal(eventet) {
             let modal = document.querySelector("#modal");
             modal.classList.add("vis");
+            modal.querySelector(".modal-eventtype").textContent = eventet.acf.eventtype;
             modal.querySelector(".modal-titel").textContent = eventet.title.rendered;
+            modal.querySelector(".modal-tid").textContent = "Dato: " + eventet.acf.tid;
             modal.querySelector(".modal-langbeskrivelse").innerHTML = eventet.content.rendered;
             modal.querySelector(".modal-kortbeskrivelse").textContent = eventet.acf.beskrivelse;
+            modal.querySelector("button").src = "Køb billet " + eventet.acf.kob;
 
             modal.querySelector(".modal-billede").src = eventet.acf.billede;
             modal.querySelector(".modal-billede").alt = "Foto af" + eventet.title.rendered;
             modal.querySelector(".luk").addEventListener("click", skjulModal);
 
         }
+
 
         function skjulModal() {
 

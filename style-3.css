@@ -16,6 +16,7 @@ body {
     padding: 1em;
 }
 
+
 /*  egen font */
 
 @font-face {
@@ -29,6 +30,10 @@ h1, h2, h3, h4, h5, h6, p, ul, .kort-beskrivelse {
 }
 
 h2 {
+    margin: 2vw;
+}
+
+#forside-h1 {
     margin: 2vw;
 }
 
@@ -124,7 +129,8 @@ p {
     position: absolute;
     z-index: 1;
     background-color: #C5CBE3;
-    max-width: 120px;
+    width: 100%;
+    text-align: left;
 }
 
 .newsletter input[type=submit]{
@@ -393,7 +399,7 @@ transition: all 0.4s ease 0s;
 }
 
 #modal-content {
-    width: 70vw;
+    width: 87vw;
     height: 100vh;
     background-color: rgba(250, 250, 250, 1);
     margin: auto;
@@ -411,6 +417,45 @@ transition: all 0.4s ease 0s;
     opacity: 1;
     pointer-events: all;
     transition: 0.5s;
+}
+
+.modal-kortbeskrivelse {
+    font-weight: bold;
+}
+
+
+#modal-overskrift {
+    text-align: left;
+    line-height: 0.4;
+}
+
+.modal-titel {
+    font-size: 25px;
+}
+
+.modal-eventtype {
+    margin-left: 2vw;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+.modal-tid {
+    margin-left: 2vw;
+    font-weight: bold;
+    border-top: solid 1px #4056A1;
+    width: 160px;
+
+}
+
+.modal-kob{
+    cursor: pointer;
+    border: solid 1px #4056A1 ;
+    width: 150px;
+    margin-bottom: 2vw;
+}
+
+.modal-kob p{
+    color: #4056A1;
 }
 
 /*  BLIV FRIVILLIG*/
@@ -644,8 +689,8 @@ input[type=submit]:hover {
     }
 
     .dropbtn {
-    max-width: 20vw;
-    max-height: 5vw;
+    width: 20vw;
+    height: 5vw;
 }
 
     .udlejning-container {
@@ -655,14 +700,44 @@ input[type=submit]:hover {
     columns: 100px 2;
 }
 
-    .dropdown-form {
-    max-width: 1000px;
+    .modal-titel {
+    font-size: 45px;
+        margin-left: 5vw;
+        margin-right: 5vw;
+
+}
+    .modal-eventtype {
+                margin-left: 5vw;
+        margin-right: 5vw;
+
+}
+    .modal-tid {
+                margin-left: 5vw;
+        margin-right: 5vw;
+
+    }
+
+    #modal-tekst {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #modal-content {
+        width: 77vw;
+    }
+
+    .navne-newsletter input[type=text] {
+    width: 100%;
+    max-width: 300px;
+    height: 27px;
 }
 
-.newsletter input[type=submit]{
-    max-width: 100px;
-    text-align: left;
+.navne-newsletter input[type=email] {
+    width: 100%;
+    max-width: 300px;
+    height: 27px;
 }
+
 
 }
 
@@ -709,5 +784,20 @@ input[type=submit]:hover {
     max-height: 400px;
 }
 
+        #modal-content {
+        width: 67vw;
+    }
+
+        .navne-newsletter input[type=text] {
+    width: 100%;
+    max-width: 700px;
+    height: 37px;
+}
+
+.navne-newsletter input[type=email] {
+    width: 100%;
+    max-width: 700px;
+    height: 37px;
+}
 
 }
